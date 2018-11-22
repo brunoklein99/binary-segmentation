@@ -60,8 +60,8 @@ def train(params):
         for i, (x, y) in enumerate(loader):
             y_pred = model(x)
 
-            flat_y = y.view(-1)
-            flat_y_pred = y_pred.view(-1)
+            flat_y = y.view(params['batch_size'], -1)
+            flat_y_pred = y_pred.view(params['batch_size'], -1)
 
             loss = criterion(flat_y_pred, flat_y)
 
